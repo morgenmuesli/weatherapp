@@ -4,52 +4,58 @@ import UIKit
 import PureLayout
 
 
+@objc(CustomViewC)
 class CustomViewController: UIViewController {
     
-    var didSetupConstraints = false
-    var bannerView = UIView.newAutoLayout()
-    var label = UILabel.newAutoLayout()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    let containerView: UIView = {
+        let view = UIView.newAutoLayout()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    let blueView: UIView = {
+        let view = UIView.newAutoLayout()
+        view.backgroundColor = .blue
+        return view
+    }()
+    let redView: UIView = {
+        let view = UIView.newAutoLayout()
+        view.backgroundColor = .red
+        return view
+    }()
+    let yellowView: UIView = {
+        let view = UIView.newAutoLayout()
         view.backgroundColor = .yellow
-    }
+        return view
+    }()
+    let greenView: UIView = {
+        let view = UIView.newAutoLayout()
+        view.backgroundColor = .green
+        return view
+    }()
     
-
-    
-    
-}
-
-// MARK: PureLayout Implementation
-extension CustomViewController {
+    var didSetupConstraints = false
     
     override func loadView() {
         view = UIView()
-        view.backgroundColor = UIColor.white
-        view.addSubview(bannerView)
-        bannerView.backgroundColor = UIColor.green
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet tortor ultricies, iaculis diam quis, molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris eget interdum libero. Nulla at ipsum lectus. Praesent tristique nisl in tincidunt tempus. Nam purus metus, mattis eu fermentum et, ultricies in enim. Donec placerat laoreet dolor, quis tincidunt diam. Vivamus nisi ligula."
-        label.numberOfLines = 0
-        view.addSubview(label)
-        view.setNeedsUpdateConstraints()
+        view.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
+        
+        view.addSubview(containerView)
+        containerView.addSubview(blueView)
+        containerView.addSubview(redView)
+        containerView.addSubview(yellowView)
+        containerView.addSubview(greenView)
+        
+        view.setNeedsUpdateConstraints() // bootstrap Auto Layout
     }
     
     override func updateViewConstraints() {
         if (!didSetupConstraints) {
             
-            bannerView.autoSetDimensions(to: CGSize(width: self.view.frame.width, height: 300))
-            bannerView.autoPinEdge(toSuperviewEdge: .top, withInset: 50)
-            bannerView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 15)
-            bannerView.autoPinEdge(toSuperviewEdge: .leading, withInset: 15)
-            
-            label.autoPinEdge(.top, to: .bottom, of: bannerView, withOffset: 50)
-            label.autoPinEdge(toSuperviewEdge: .trailing, withInset: 15)
-            label.autoPinEdge(toSuperviewEdge: .leading, withInset: 15)
+ 
             
             didSetupConstraints = true
         }
+        
         super.updateViewConstraints()
     }
 }
