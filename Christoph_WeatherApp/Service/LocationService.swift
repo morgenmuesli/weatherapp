@@ -54,7 +54,7 @@ class LocationService: NSObject {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
             break
         case .denied:
             // show alert instructing
