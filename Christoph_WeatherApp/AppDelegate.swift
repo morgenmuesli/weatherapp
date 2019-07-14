@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // weather forecast request
         
-        locationService.checkLocationServices()
         
         locationService.newestLocation = {
             [weak self] coordinate in
@@ -39,19 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.getForecast(for: coordinate)
         }
         
-        locationService.statusUpdated = { [weak self] status in
-            if status == .authorizedWhenInUse {
-                self?.locationService.getLocation()
-            }
-        }
-        
-        switch locationService.status {
-        case .notDetermined:
-            locationService.getPermission()
-        case .authorizedWhenInUse:
-            locationService.getLocation()
-        default: assertionFailure("Location is: \(locationService.status)")
-        }
 
 
         

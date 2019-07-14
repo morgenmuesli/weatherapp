@@ -15,7 +15,6 @@
 		590E8EAF22D297F200B3021E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 590E8EAD22D297F200B3021E /* LaunchScreen.storyboard */; };
 		590E8EBA22D297F200B3021E /* Christoph_WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590E8EB922D297F200B3021E /* Christoph_WeatherAppTests.swift */; };
 		590E8EC522D297F200B3021E /* Christoph_WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590E8EC422D297F200B3021E /* Christoph_WeatherAppUITests.swift */; };
-		5960234522D6896A00FE047A /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960234422D6896A00FE047A /* CustomViewController.swift */; };
 		5960234B22D6954800FE047A /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960234A22D6954800FE047A /* WeatherService.swift */; };
 		596023A022D806DC00FE047A /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960239F22D806DC00FE047A /* WeatherView.swift */; };
 		596023AF22D822B500FE047A /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 596023AE22D822B500FE047A /* weather.json */; };
@@ -61,7 +60,6 @@
 		590E8EC022D297F200B3021E /* Christoph_WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Christoph_WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		590E8EC422D297F200B3021E /* Christoph_WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Christoph_WeatherAppUITests.swift; sourceTree = "<group>"; };
 		590E8EC622D297F200B3021E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5960234422D6896A00FE047A /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		5960234A22D6954800FE047A /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		5960239F22D806DC00FE047A /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		596023AE22D822B500FE047A /* weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				590E8EAB22D297F200B3021E /* Assets.xcassets */,
 				590E8EAD22D297F200B3021E /* LaunchScreen.storyboard */,
 				590E8EB022D297F200B3021E /* Info.plist */,
-				5960234422D6896A00FE047A /* CustomViewController.swift */,
 			);
 			path = Christoph_WeatherApp;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				5960234B22D6954800FE047A /* WeatherService.swift in Sources */,
 				596023C322D915AF00FE047A /* WeatherInformation.swift in Sources */,
 				596023BF22D8D89400FE047A /* CurrentForecastViewModel.swift in Sources */,
-				5960234522D6896A00FE047A /* CustomViewController.swift in Sources */,
 				596023B522D8705700FE047A /* Forecast.swift in Sources */,
 				590E8EA722D297EF00B3021E /* ViewController.swift in Sources */,
 				596023A022D806DC00FE047A /* WeatherView.swift in Sources */,

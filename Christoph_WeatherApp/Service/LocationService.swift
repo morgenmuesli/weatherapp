@@ -11,10 +11,10 @@ import CoreLocation
 
 class LocationService: NSObject {
     
-
+    
     // function pointers
     var newestLocation: ((CLLocationCoordinate2D?) -> Void)?
-    var statusUpdated: ((CLAuthorizationStatus) -> Void)?
+    // var statusUpdated: ((CLAuthorizationStatus) -> Void)?
     // location manager
     let locationManager = CLLocationManager()
     
@@ -32,12 +32,18 @@ class LocationService: NSObject {
         
     }
     
+    public override init() {
+        super.init()
+        checkLocationServices()
+        
+    }
+
+    
     /** checks if location services are enabled
      *
      */
     func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
-            print("i have the power")
             setupLocationManager()
             checkLocationAuthorization()
         }else {
@@ -48,7 +54,7 @@ class LocationService: NSObject {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
             break
         case .denied:
             // show alert instructing
@@ -81,7 +87,7 @@ class LocationService: NSObject {
 
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.sorted(by: { $0.timestamp > $1.timestamp }).first {
+        if let location = locations.last {
             self.newestLocation?(location.coordinate)
         } else {
             self.newestLocation?(nil)
@@ -91,7 +97,8 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.statusUpdated?(status)
+        //self.statusUpdated?(status)
+        self.checkLocationAuthorization()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
